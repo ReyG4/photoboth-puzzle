@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame & Found</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="site-header" id="mainNavbar">
+        <a href="#" class="logo">
+            <span class="logo-mark">F</span>
+            <span>FRAME <span class="logo-amp">&</span> FOUND.</span>
+        </a>
+        <span class="nav-caption">A LITTLE MOMENT, A LITTLE MEMORY</span>
+    </header>
+
+    <!-- HOME PAGE -->
+    <main id="homePage">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">YOUR PERSONAL PHOTOBOOTH</p>
+                <h1>Make a moment.<br><span>Keep it forever.</span></h1>
+                <p class="hero-description">
+                    Create your own photobooth memories.
+                    Strike a pose, capture the moment, and solve
+                    the puzzle to reveal your photo.
+                </p>
+                <a href="#layoutSection" class="primary-button">
+                    Create your photobooth <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-art">
+                <div class="art-note">A MOMENT TO REMEMBER</div>
+                <div class="art-photo art-photo-back">
+                    <div class="art-photo-inner"></div>
+                </div>
+                <div class="art-photo art-photo-front">
+                    <div class="art-photo-inner"></div>
+                    <span class="photo-stamp">F&F</span>
+                </div>
+                <div class="art-star star-one">✳</div>
+                <div class="art-star star-two">✳</div>
+                <div class="art-circle"></div>
+            </div>
+
+            <div class="hero-bottom">
+                <span>CAPTURE YOUR DAY</span>
+                <span>01 — 03</span>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section">
+            <div class="section-heading">
+                <p class="eyebrow">HOW IT WORKS</p>
+                <h2>Three simple steps.</h2>
+            </div>
+
+            <div class="steps">
+                <article class="step-card">
+                    <span class="step-number">01</span>
+                    <div class="step-icon">▣</div>
+                    <h3>Choose your layout</h3>
+                    <p>Pick the photobooth arrangement you like.</p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-number">02</span>
+                    <div class="step-icon">◎</div>
+                    <h3>Strike a pose</h3>
+                    <p>Use your hands to create a frame and capture a photo.</p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-number">03</span>
+                    <div class="step-icon">▦</div>
+                    <h3>Solve the puzzle</h3>
+                    <p>Arrange the puzzle pieces to reveal your photo.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- LAYOUT SELECTION -->
+        <section class="layout-section" id="layoutSection">
+            <div class="section-heading">
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h2>Choose your layout.</h2>
+                <p>Select how you want your photobooth photos to be arranged.</p>
+            </div>
+
+            <div class="layout-options">
+                <button class="layout-card" type="button" data-layout="vertical">
+                    <div class="layout-preview vertical-preview">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="layout-card-info">
+                        <div>
+                            <h3>Classic Strip</h3>
+                            <p>3 photos · Vertical</p>
+                        </div>
+                        <span class="layout-check">✓</span>
+                    </div>
+                </button>
+
+                <button class="layout-card" type="button" data-layout="horizontal">
+                    <div class="layout-preview horizontal-preview">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="layout-card-info">
+                        <div>
+                            <h3>Wide Strip</h3>
+                            <p>3 photos · Horizontal</p>
+                        </div>
+                        <span class="layout-check">✓</span>
+                    </div>
+                </button>
+
+                <button class="layout-card" type="button" data-layout="four">
+                    <div class="layout-preview four-preview">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="layout-card-info">
+                        <div>
+                            <h3>Photo Grid</h3>
+                            <p>4 photos · 2 × 2</p>
+                        </div>
+                        <span class="layout-check">✓</span>
+                    </div>
+                </button>
+            </div>
+
+            <p class="layout-hint" id="layoutHint">
+                Select a photo layout to continue.
+            </p>
+
+            <button class="primary-button start-button" id="startButton" disabled>
+                Start photobooth <span>→</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- FULLSCREEN CAMERA PAGE -->
+    <section class="camera-page hidden" id="cameraPage">
+        <div class="camera-topbar">
+            <button class="camera-exit-button" id="exitCamera" type="button">
+                <span>←</span> Exit
+            </button>
+
+            <div class="camera-brand">FRAME <span>&</span> FOUND.</div>
+            <div class="photo-progress" id="photoProgress">PHOTO 1 OF 3</div>
+        </div>
+
+        <div class="camera-main">
+            <div class="camera-heading">
+                <p class="eyebrow">YOUR MOMENT STARTS HERE</p>
+                <h2>Strike a pose.</h2>
+                <p id="gestureDescription">
+                    Position both hands to create a frame.
+                    Pinch your thumb and middle finger to take a photo.
+                </p>
+            </div>
+
+            <div class="camera-stage" id="stage">
+                <video id="webcam" autoplay muted playsinline></video>
+                <canvas id="overlay"></canvas>
+
+                <div class="camera-corner top-left"></div>
+                <div class="camera-corner top-right"></div>
+                <div class="camera-corner bottom-left"></div>
+                <div class="camera-corner bottom-right"></div>
+
+                <div class="camera-stage-label">FRAME & FOUND PHOTOBOOTH</div>
+            </div>
+
+            <div class="camera-status" id="status">Preparing camera...</div>
+
+            <div class="camera-controls">
+                <button class="camera-control-button secondary-control" id="restartCamera" type="button">
+                    ↻ Restart
+                </button>
+                <button class="camera-control-button stop-control" id="stopCamera" type="button">
+                    Stop camera
+                </button>
+                <button class="camera-control-button next-control hidden" id="nextPhotoButton" type="button">
+                    Next photo →
+                </button>
+            </div>
+        </div>
+
+        <div class="camera-bottombar">
+            <span>USE YOUR HANDS TO INTERACT</span>
+            <span>FRAME YOUR MOMENT · SOLVE YOUR PUZZLE</span>
+        </div>
+    </section>
+
+    <!-- RESULT PAGE -->
+    <section class="result-page hidden" id="resultPage">
+        <div class="result-heading">
+            <p class="eyebrow">YOUR MOMENT, CAPTURED</p>
+            <h1>Look what you've made.</h1>
+            <p>Your photobooth memories are ready to keep.</p>
+        </div>
+
+        <div class="result-workspace">
+            <div class="result-paper">
+                <canvas id="photoboxEditorCanvas" class="photobox-editor-canvas"></canvas>
+            </div>
+
+            <!-- STICKER EDITOR -->
+            <aside class="sticker-panel">
+                <div class="sticker-panel-heading">
+                    <p class="eyebrow">MAKE IT PERSONAL</p>
+                    <h2>Decorate your photos.</h2>
+                    <p>Choose a sticker, then drag it anywhere on your photobooth.</p>
+                </div>
+
+                <div class="sticker-categories" id="stickerCategories">
+                    <button class="sticker-category active" data-category="all" type="button">All</button>
+                    <button class="sticker-category" data-category="love" type="button">Love</button>
+                    <button class="sticker-category" data-category="nature" type="button">Nature</button>
+                    <button class="sticker-category" data-category="cute" type="button">Cute</button>
+                    <button class="sticker-category" data-category="fun" type="button">Fun</button>
+                </div>
+
+                <div class="sticker-grid" id="stickerGrid"></div>
+
+                <div class="sticker-editor-divider"></div>
+
+                <div class="selected-sticker-heading">
+                    <h3>Selected sticker</h3>
+                    <span id="stickerSelectionLabel">None</span>
+                </div>
+
+                <div class="sticker-tools">
+                    <button type="button" id="stickerSmaller" title="Perkecil" disabled>−</button>
+                    <button type="button" id="stickerLarger" title="Perbesar" disabled>＋</button>
+                    <button type="button" id="stickerRotate" title="Putar" disabled>↻</button>
+                    <button type="button" id="stickerDelete" title="Hapus" disabled>×</button>
+                </div>
+
+                <div class="sticker-actions">
+                    <button type="button" class="sticker-undo-button" id="stickerUndo" disabled>
+                        ↶ Undo
+                    </button>
+                    <button type="button" class="sticker-reset-button" id="stickerReset">
+                        Reset stickers
+                    </button>
+                </div>
+
+                <p class="sticker-tip">
+                    Tip: Klik sticker untuk menambahkannya. Pilih sticker di photobooth untuk mengubah ukuran, memutar, atau menghapusnya.
+                </p>
+            </aside>
+        </div>
+
+        <div class="result-actions">
+            <button class="primary-button" id="downloadButton" type="button">
+                Download photobooth ↓
+            </button>
+            <button class="outline-button" id="newSessionButton" type="button">
+                Create another photobooth
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="mainFooter">
+        <a href="#" class="logo footer-logo">
+            <span class="logo-mark">F</span>
+            <span>FRAME <span class="logo-amp">&</span> FOUND.</span>
+        </a>
+        <p>Make a moment. Keep it forever.</p>
+        <span class="footer-copy">© 2026 FRAME & FOUND.</span>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
